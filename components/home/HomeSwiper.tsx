@@ -1,20 +1,32 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 
 const HomeSwiper = () => {
   return (
-    <div className="h-[10rem] flex items-center">
-      <Swiper modules={[Navigation, Pagination, Scrollbar, A11y]} spaceBetween={20} slidesPerView={3} navigation pagination={{ clickable: true }} scrollbar={{ draggable: true }} onSwiper={(swiper) => console.log(swiper)} onSlideChange={() => console.log("slide change")}>
-        <SwiperSlide>Slide 1asdasdasdas</SwiperSlide>
-        <SwiperSlide>Slide 2asdlkasdasjdlaj</SwiperSlide>
-        <SwiperSlide>Slide 3asdasd</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        ...
+    <div className="relative flex items-center swiper-container">
+      <div className="absolute top-0 left-0 w-1/3 h-full opacity-30 z-30 bg-black">123</div>
+      <div className="absolute top-0 right-0 w-1/3 h-full opacity-30 z-30 bg-black">123</div>
+
+      <Swiper modules={[Navigation, Pagination, Scrollbar]} spaceBetween={30} slidesPerView={3} centeredSlides={true} loop={true} navigation pagination={{ clickable: true }} scrollbar={{ draggable: true }} onSwiper={(swiper) => console.log(swiper)} onSlideChange={() => console.log("slide change")}>
+        <SwiperSlide>
+          <div className="h-[15rem] bg-red-100">이미지 1</div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="h-[15rem] bg-red-100">이미지 2</div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="h-[15rem] bg-red-100">이미지 3</div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="h-[15rem] bg-red-100">이미지 4</div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="h-[15rem] bg-red-100">이미지 5</div>
+        </SwiperSlide>
       </Swiper>
     </div>
   );

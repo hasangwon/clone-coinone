@@ -5,7 +5,7 @@ const Header = () => {
   const [showBenefits, setShowBenefits] = useState(false);
 
   return (
-    <header className="w-full bg-white text-blue-900 shadow-md py-4 px-8 flex justify-between items-center overflow-hidden">
+    <header className="w-full bg-white text-blue-900 shadow-md py-4 px-8 flex justify-center items-center overflow-hidden">
       {/* 네비게이션 메뉴 */}
       <span className="text-xl font-bold hover:text-blue-700 whitespace-nowrap block lg:hidden">CoinOne</span>
       <nav className="space-x-6 mr-6 hidden lg:flex">
