@@ -1,22 +1,19 @@
-import Header from "@/components/common/Header";
+import Header from "@/components/global/Header";
 import SearchInput from "@/components/common/SearchInput";
 import HomeSwiper from "@/components/home/HomeSwiper";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { getCoinList } from "@/service/coinService";
 
 export default function Home() {
   const [coins, setCoins] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/proxy/ticker_new/KRW")
-      .then((response) => {
-        console.log(response.data);
-        const toplist = response.data.tickers.slice(0, 10);
-
-        console.log(toplist);
-
-        setCoins(toplist);
+    getCoinList()
+      .then((data) => {
+        console.log(data);
+        const topList = data.slice(0, 10);
+        setCoins(topList);
       })
       .catch((error) => console.error("Error:", error));
   }, []);
